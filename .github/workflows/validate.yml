@@ -1,0 +1,26 @@
+name: Validate
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - name: Install dependencies
+        run: yarn ci
+      - name: Typescript
+        run: yarn tsc
+      - name: Lint
+        run: yarn lint
+      - name: Formatting
+        run: yarn format:check
