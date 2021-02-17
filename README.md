@@ -11,11 +11,11 @@ npm install react-native-midnight
 ## Usage
 
 ```js
-import Midnight from "react-native-midnight";
+import Midnight from 'react-native-midnight'
 
 // ...
 
-const result = await Midnight.multiply(3, 7);
+const result = await Midnight.multiply(3, 7)
 ```
 
 ## Contributing
