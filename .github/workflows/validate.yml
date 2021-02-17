@@ -17,9 +17,9 @@ jobs:
         with:
           node-version: '14.x'
       - name: Install dependencies
-        run: yarn ci
+        run: yarn install --frozen-lockfile
       - name: Typescript
-        run: yarn tsc
+        run: yarn typescript
       - name: Lint
         run: yarn lint
       - name: Formatting
