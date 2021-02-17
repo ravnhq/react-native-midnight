@@ -27,6 +27,7 @@ export default function App() {
   const eventEmitter = new NativeEventEmitter(NativeModules.Midnight)
 
   eventEmitter.addListener('dayChanged', () => {
+    // eslint-disable-next-line no-console
     console.log('Day changed')
   })
 
