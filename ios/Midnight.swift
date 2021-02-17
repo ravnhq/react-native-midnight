@@ -10,7 +10,7 @@ class Midnight: RCTEventEmitter {
             .default
             .post(.init(name: .NSCalendarDayChanged))
     }
-    
+
     // MARK: Private Methods
     @objc private func sendDayChangedEvent() {
         sendEvent(withName: "dayChanged", body: nil)
@@ -22,13 +22,13 @@ class Midnight: RCTEventEmitter {
             .default
             .addObserver(self, selector: #selector(sendDayChangedEvent), name: .NSCalendarDayChanged, object: nil)
     }
-    
+
     @objc override func stopObserving() {
         NotificationCenter
             .default
             .removeObserver(self, name: .NSCalendarDayChanged, object: nil)
     }
-    
+
     @objc override func supportedEvents() -> [String]! {
         ["dayChanged"]
     }
