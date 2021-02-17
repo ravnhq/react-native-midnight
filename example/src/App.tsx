@@ -30,8 +30,6 @@ export default function App() {
     console.log('Day changed')
   })
 
-  Midnight.subscribe()
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Midnight 🌓</Text>
