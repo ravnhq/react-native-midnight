@@ -1,6 +1,13 @@
 import * as React from 'react'
 
-import { StyleSheet, View, Text } from 'react-native'
+import {
+  StyleSheet,
+  View,
+  Text,
+  Button,
+  NativeModules,
+  NativeEventEmitter,
+} from 'react-native'
 import Midnight from 'react-native-midnight'
 
 const styles = StyleSheet.create({
@@ -9,20 +16,30 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    paddingBottom: 16,
+  },
 })
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>()
+  const eventEmitter = new NativeEventEmitter(NativeModules.Midnight)
 
-  React.useEffect(() => {
-    Midnight.multiply(3, 7)
-      .then(setResult)
-      .catch(() => undefined)
-  }, [])
+  eventEmitter.addListener('dayChanged', () => {
+    // eslint-disable-next-line no-console
+    console.log('Day changed')
+  })
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text style={styles.title}>Midnight 🌓</Text>
+      <Button
+        onPress={() => {
+          Midnight.postNotification()
+        }}
+        title="Manually Post Notification"
+      />
     </View>
   )
 }

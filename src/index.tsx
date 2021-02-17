@@ -1,7 +1,7 @@
 import { NativeModules } from 'react-native'
 
 type MidnightType = {
-  multiply(a: number, b: number): Promise<number>
+  postNotification(): void
 }
 
 const { Midnight } = NativeModules
