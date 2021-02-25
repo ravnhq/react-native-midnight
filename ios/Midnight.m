@@ -2,5 +2,5 @@
 #import <React/RCTEventEmitter.h>
 
 @interface RCT_EXTERN_MODULE(Midnight, NSObject)
-RCT_EXTERN_METHOD(postNotification)
+RCT_EXTERN_METHOD(triggerDayChangedEvent)
 @end
