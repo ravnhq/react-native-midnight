@@ -1,14 +1,13 @@
-import * as React from 'react'
-
+import React from 'react'
 import {
   StyleSheet,
   View,
   Text,
   Button,
   NativeModules,
-  NativeEventEmitter,
+  Alert,
 } from 'react-native'
-import Midnight from 'react-native-midnight'
+import { useOnDayChange } from 'react-native-midnight'
 
 const styles = StyleSheet.create({
   container: {
@@ -24,21 +23,18 @@ const styles = StyleSheet.create({
 })
 
 export default function App() {
-  const eventEmitter = new NativeEventEmitter(NativeModules.Midnight)
-
-  eventEmitter.addListener('dayChanged', () => {
-    // eslint-disable-next-line no-console
-    console.log('Day changed')
+  useOnDayChange(() => {
+    Alert.alert('The day has changed')
   })
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Midnight 🌓</Text>
+      <Text style={styles.title}>react-native-midnight 🌓</Text>
       <Button
         onPress={() => {
-          Midnight.postNotification()
+          NativeModules.Midnight.triggerDayChangedEvent() // eslint-disable-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
         }}
-        title="Manually Post Notification"
+        title="Trigger"
       />
     </View>
   )

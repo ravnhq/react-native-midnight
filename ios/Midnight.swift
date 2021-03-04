@@ -5,7 +5,7 @@ import Foundation
 @objc(Midnight)
 class Midnight: RCTEventEmitter {
     // MARK: RN Exposed Methods
-    @objc func postNotification() {
+    @objc func triggerDayChangedEvent() {
         NotificationCenter
             .default
             .post(.init(name: .NSCalendarDayChanged))
@@ -13,7 +13,7 @@ class Midnight: RCTEventEmitter {
 
     // MARK: Private Methods
     @objc private func sendDayChangedEvent() {
-        sendEvent(withName: "dayChanged", body: nil)
+        sendEvent(withName: "Midnight_dayChanged", body: nil)
     }
 
     // MARK: RCTEventEmitter Methods
@@ -30,6 +30,6 @@ class Midnight: RCTEventEmitter {
     }
 
     @objc override func supportedEvents() -> [String]! {
-        ["dayChanged"]
+        ["Midnight_dayChanged"]
     }
 }
