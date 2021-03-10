@@ -37,7 +37,7 @@ yarn add react-native-midnight
 
 The addListener function connects a function to a day change notification event.
 
-This function then returns the reference to the listener which you can remove the listener from.
+This function then returns the reference to the listener. You can remove the listener by calling the `remove` method on it.
 
 ```js
 import Midnight from 'react-native-midnight'
@@ -50,7 +50,7 @@ const App = () => {
     return () => listener.remove()
   }, [])
 
-  return <View>App</View>
+  return <Text>App</Text>
 }
 ```
 
