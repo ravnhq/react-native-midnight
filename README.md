@@ -10,14 +10,14 @@ Simple react native package for listening to date changes
 
 [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
-[github-action-image]: https://github.com/ant-design/ant-design/workflows/%E2%9C%85%20test/badge.svg
-[github-action-url]: https://github.com/ant-design/ant-design/actions?query=workflow%3A%22%E2%9C%85+test%22
-[codecov-image]: https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square
-[codecov-url]: https://codecov.io/gh/ant-design/ant-design/branch/master
-[npm-image]: http://img.shields.io/npm/v/antd.svg?style=flat-square
-[npm-url]: http://npmjs.org/package/antd
-[download-url]: https://npmjs.org/package/antd
-[download-image]: https://img.shields.io/npm/dm/antd.svg?style=flat-square
+[github-action-image]: https://img.shields.io/github/workflow/status/ravnhq/react-native-midnight/validate/master?label=tests&style=flat
+[github-action-url]: https://github.com/ravnhq/react-native-midnight/actions/workflows/validate.yml?query=branch%3Amaster
+[codecov-image]: https://img.shields.io/codecov/c/github/ravnhq/react-native-midnight/master.svg?style=flat
+[codecov-url]: https://codecov.io/gh/ravnhq/react-native-midnight/branch/master
+[npm-image]: https://img.shields.io/npm/v/react-native-midnight?style=flat
+[npm-url]: http://npmjs.org/package/react-native-midnight
+[download-image]: https://img.shields.io/npm/dw/react-native-midnight?style=flat
+[download-url]: https://npmjs.org/package/react-native-midnight
 
 </div>
 
