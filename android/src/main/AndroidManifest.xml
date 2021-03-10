@@ -3,7 +3,7 @@
     <application>
         <receiver android:name=".MidnightBroadcastReceiver"  android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.ACTION_TIME_TICK"/>
+                <action android:name="android.intent.action.ACTION_DATE_CHANGED"/>
                 <action android:name="android.intent.action.ACTION_TIMEZONE_CHANGED" />
                 <action android:name="android.intent.action.ACTION_TIME_CHANGED" />
             </intent-filter>
