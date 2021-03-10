@@ -1,12 +1,3 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.reactnativemidnight">
-    <application>
-        <receiver android:name=".MidnightBroadcastReceiver"  android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.ACTION_DATE_CHANGED"/>
-                <action android:name="android.intent.action.ACTION_TIMEZONE_CHANGED" />
-                <action android:name="android.intent.action.ACTION_TIME_CHANGED" />
-            </intent-filter>
-        </receiver>
-    </application>
 </manifest>
