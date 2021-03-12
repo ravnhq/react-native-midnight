@@ -1,0 +1,91 @@
+version: 2.1
+
+references:
+  ignore_master: &ignore_master
+    filters:
+      branches:
+        ignore:
+          - master
+
+  only_master: &only_master
+    filters:
+      branches:
+        only:
+          - master
+
+  yarn_key: &yarn_key yarn-nm-cache-v1-{{ checksum "yarn.lock" }}-{{ checksum "package.json" }}-{{ arch }}
+
+  restore_yarn_cache: &restore_yarn_cache
+    restore_cache:
+      keys:
+        - *yarn_key
+
+  save_yarn_cache: &save_yarn_cache
+    save_cache:
+      name: Saving Cache - yarn
+      key: *yarn_key
+      paths:
+        - ~/.cache/yarn
+        - node_modules
+
+  install_javascript_dependencies: &install_javascript_dependencies
+    run:
+      name: Download javascript dependencies (node_modules)
+      command: yarn install --frozen-lockfile
+
+jobs:
+  validate:
+    docker:
+      - image: circleci/node:14
+
+    steps:
+      - checkout
+      - *restore_yarn_cache
+      - *install_javascript_dependencies
+      - *save_yarn_cache
+      - run:
+          name: Typescript
+          command: yarn typescript
+      - run:
+          name: Lint
+          command: yarn lint
+      - run:
+          name: Formatting
+          command: yarn format:check
+      - run:
+          name: Test
+          command: yarn test --coverage
+      - run:
+          name: Upload coverage
+          command: >-
+            bash <(curl -s https://codecov.io/bash) \
+            -n ${CIRCLE_BUILD_NUM} \
+            -t ${CODECOV_TOKEN} \
+            -F  \
+
+  release:
+    docker:
+      - image: circleci/node:14
+
+    steps:
+      - checkout
+      # We duplicate installing dependencies rather than using the deps from previous steps. Maybe change this.
+      - *restore_yarn_cache
+      - *install_javascript_dependencies
+      - *save_yarn_cache
+      - run: npx semantic-release
+
+workflows:
+  validate_pr:
+    jobs:
+      - validate:
+          <<: *ignore_master
+
+  release:
+    jobs:
+      - validate:
+          <<: *only_master
+      - release:
+          <<: *only_master
+          requires:
+            - validate

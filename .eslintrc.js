@@ -10,5 +10,7 @@ module.exports = {
     '@ravn-dev/eslint-config-ravn/jest',
     '@ravn-dev/eslint-config-ravn/typescript',
   ],
-  rules: {},
+  rules: {
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+  },
 }
