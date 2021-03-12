@@ -73,7 +73,9 @@ jobs:
       - *restore_yarn_cache
       - *install_javascript_dependencies
       - *save_yarn_cache
-      - run: npx semantic-release
+      - run:
+          name: release
+          command: npm run semantic-release || true
 
 workflows:
   validate_pr:

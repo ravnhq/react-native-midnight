@@ -1,6 +1,6 @@
 {
   "name": "react-native-midnight",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "description": "Subscribe to changes in time",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -68,7 +68,7 @@
     "react": "16.13.1",
     "react-native": "0.63.4",
     "react-native-builder-bob": "^0.17.1",
-    "semantic-release": "^17.4.1",
+    "semantic-release": "^17.4.2",
     "typescript": "^4.1.3"
   },
   "peerDependencies": {
