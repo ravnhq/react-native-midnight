@@ -40,7 +40,7 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/ravnhq/react-native-midnight.git/",
+  "repository": "https://github.com/ravnhq/react-native-midnight",
   "author": "https://www.ravn.co/",
   "license": "MIT",
   "bugs": {
