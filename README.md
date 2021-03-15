@@ -8,12 +8,13 @@
 
 Simple react native package for listening to date changes
 
-[![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
+[![CI status][circle-ci-image]][circle-ci-url] [![codecov][codecov-image]][codecov-url] ![semantic-release][semantic-release-image] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
-[github-action-image]: https://img.shields.io/github/workflow/status/ravnhq/react-native-midnight/validate/master?label=tests&style=flat
-[github-action-url]: https://github.com/ravnhq/react-native-midnight/actions/workflows/validate.yml?query=branch%3Amaster
+[circle-ci-image]: https://circleci.com/gh/ravnhq/react-native-midnight.svg?style=shield
+[circle-ci-url]: https://github.com/ravnhq/react-native-midnight/actions/workflows/validate.yml?query=branch%3Amaster
 [codecov-image]: https://img.shields.io/codecov/c/github/ravnhq/react-native-midnight/master.svg?style=flat
 [codecov-url]: https://codecov.io/gh/ravnhq/react-native-midnight/branch/master
+[semantic-release-image]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
 [npm-image]: https://img.shields.io/npm/v/react-native-midnight?style=flat
 [npm-url]: http://npmjs.org/package/react-native-midnight
 [download-image]: https://img.shields.io/npm/dw/react-native-midnight?style=flat
