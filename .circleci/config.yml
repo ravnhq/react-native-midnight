@@ -76,16 +76,16 @@ jobs:
       - run: npx semantic-release
 
 workflows:
-  # validate_pr:
-  #   jobs:
-  #     - validate:
-  #         <<: *ignore_master
-
-  release:
+  validate_pr:
     jobs:
-      - validate
-        # <<: *only_master
+      - validate:
+          <<: *ignore_master
+
+  validate_and_release:
+    jobs:
+      - validate:
+          <<: *only_master
       - release:
-          # <<: *only_master
+          <<: *only_master
           requires:
             - validate

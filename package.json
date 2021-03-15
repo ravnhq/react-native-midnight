@@ -38,7 +38,13 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "midnight",
+    "day-changed",
+    "calendardaychanged",
+    "time-changed",
+    "date-changed",
+    "timezone-changed"
   ],
   "repository": "https://github.com/ravnhq/react-native-midnight",
   "author": "https://www.ravn.co/",
@@ -80,10 +86,6 @@
       "pre-commit": "lint-staged"
     }
   },
-  "eslintIgnore": [
-    "node_modules/",
-    "lib/"
-  ],
   "react-native-builder-bob": {
     "source": "src",
     "output": "lib",
