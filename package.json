@@ -4,7 +4,7 @@
   "description": "Subscribe to changes in time",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
-  "types": "lib/typescript/src/index.d.ts",
+  "types": "lib/typescript/index.d.ts",
   "react-native": "src/index",
   "source": "src/index",
   "files": [
@@ -28,7 +28,8 @@
     "format": "prettier .",
     "format:check": "yarn format --check",
     "validate": "npm-run-all typescript lint format:check",
-    "prepublishOnly": "bob build",
+    "build": "bob build",
+    "prepublishOnly": "yarn build",
     "release": "yarn semantic-release",
     "example": "yarn --cwd example",
     "pods": "cd example && pod-install --quiet",
@@ -80,11 +81,6 @@
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "react-native-builder-bob": {
     "source": "src",
