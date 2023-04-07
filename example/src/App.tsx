@@ -7,7 +7,7 @@ import {
   NativeModules,
   Alert,
 } from 'react-native'
-import { useOnDayChange } from 'react-native-midnight'
+import { useOnDayChange, useOnHourChange } from 'react-native-midnight'
 
 const styles = StyleSheet.create({
   container: {
@@ -27,12 +27,22 @@ export default function App() {
     Alert.alert('The day has changed')
   })
 
+  useOnHourChange(() => {
+    Alert.alert('The hour has changed')
+  })
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>react-native-midnight 🌓</Text>
       <Button
         onPress={() => {
           NativeModules.Midnight.triggerDayChangedEvent() // eslint-disable-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+        }}
+        title="Trigger"
+      />
+      <Button
+        onPress={() => {
+          NativeModules.Midnight.triggerHourChangedEvent() // eslint-disable-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
         }}
         title="Trigger"
       />

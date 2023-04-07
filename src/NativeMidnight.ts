@@ -2,6 +2,7 @@ import { Platform, NativeModules, EventSubscriptionVendor } from 'react-native'
 
 interface MidnightNativeModule extends EventSubscriptionVendor {
   triggerDayChangedEvent: () => void
+  triggerHourChangedEvent: () => void
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment

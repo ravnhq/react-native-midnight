@@ -18,23 +18,37 @@ class MidnightModule(private val reactContext: ReactApplicationContext) : ReactC
   }
 
   private var date = Date()
+  private var hourIn24Format: Int = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
 
   private fun isSameDay(date1: Date, date2: Date): Boolean {
     val fmt = SimpleDateFormat("yyyyMMdd")
     return fmt.format(date1) == fmt.format(date2)
   }
 
+  private fun isHourUpdated(hour1: Int, hour2: Int): Boolean {
+    return hour1 < hour2
+  }
+
   private fun sendDayChangedEvent() {
     reactContext.getJSModule(RCTDeviceEventEmitter::class.java).emit("Midnight_dayChanged", null)
+  }
+
+  private fun sendHourChangedEvent() {
+    reactContext.getJSModule(RCTDeviceEventEmitter::class.java).emit("Midnight_hourChanged", null)
   }
 
   private val midnightBroadcastReceiver: BroadcastReceiver = object : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
       val currentDate = Date()
+      val currentHourIn24Format: Int = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
 
       if(!isSameDay(date, currentDate)) {
         date = currentDate
         sendDayChangedEvent()
+      }
+      if(!isHourUpdated(hourIn24Format, currentHourIn24Format)) {
+        hourIn24Format = currentHourIn24Format
+        sendHourChangedEvent()
       }
     }
   }
@@ -63,5 +77,11 @@ class MidnightModule(private val reactContext: ReactApplicationContext) : ReactC
   @ReactMethod
   fun triggerDayChangedEvent() {
     sendDayChangedEvent()
+  }
+
+  @Suppress("unused")
+  @ReactMethod
+  fun triggerHourChangedEvent() {
+    sendHourChangedEvent()
   }
 }
