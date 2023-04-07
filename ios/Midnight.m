@@ -8,5 +8,6 @@
 }
 
 RCT_EXTERN_METHOD(triggerDayChangedEvent)
+RCT_EXTERN_METHOD(triggerHourChangedEvent)
 
 @end
