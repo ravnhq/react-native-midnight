@@ -18,7 +18,7 @@ To start the packager:
 yarn example start
 ```
 
-To run the example app on Android:
+To run the example app on Android, make sure to run it with Java 17:
 
 ```sh
 yarn example android
