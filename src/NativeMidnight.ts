@@ -1,14 +1,14 @@
-import { Platform, NativeModules, EventSubscriptionVendor } from 'react-native'
+import { Platform, NativeModules, EventSubscription } from "react-native"
 
-interface MidnightNativeModule extends EventSubscriptionVendor {
+interface MidnightNativeModule extends EventSubscription {
   triggerDayChangedEvent: () => void
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 const NativeMidnight: MidnightNativeModule | undefined = NativeModules.Midnight
 
-if (Platform.OS !== 'ios' && Platform.OS !== 'android') {
-  throw Error('react-native-midnight is not compatible with this platform')
+if (Platform.OS !== "ios" && Platform.OS !== "android") {
+  throw Error("react-native-midnight is not compatible with this platform")
 }
 
 if (!NativeMidnight) {
