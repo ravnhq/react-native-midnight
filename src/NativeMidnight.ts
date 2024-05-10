@@ -1,7 +1,9 @@
-import { Platform, NativeModules, EventSubscription } from "react-native"
+import { Platform, NativeModules, type EventSubscription } from "react-native"
 
 interface MidnightNativeModule extends EventSubscription {
   triggerDayChangedEvent: () => void
+  addListener: () => void
+  removeListeners: () => void
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
