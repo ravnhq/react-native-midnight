@@ -65,7 +65,7 @@ jobs:
 
   release:
     docker:
-      - image: circleci/node:14
+      - image: cimg/node:18.20
 
     steps:
       - checkout
