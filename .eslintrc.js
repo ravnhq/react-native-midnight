@@ -10,5 +10,7 @@ module.exports = {
   ],
   rules: {
     "@typescript-eslint/no-unsafe-assignment": "off",
+    // Adding or updating the filenames/match-exported rule
+    "filenames/match-exported": ["error", ["pascal", "kebab"]],
   },
 }
