@@ -1,1 +1,1 @@
-module.exports = require('@ravn-dev/prettier-config')
+module.exports = "@ravnhq/prettier-config"
