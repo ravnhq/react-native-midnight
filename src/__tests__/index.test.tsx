@@ -1,4 +1,5 @@
-import { NativeEventEmitter, NativeModules } from "react-native" // eslint-disable-line @typescript-eslint/no-unused-vars
+// import { NativeEventEmitter, NativeModules } from "react-native" // eslint-disable-line @typescript-eslint/no-unused-vars
+import { NativeModules } from "react-native"
 
 jest.mock("react-native/Libraries/EventEmitter/NativeEventEmitter", () =>
   jest.fn(),
