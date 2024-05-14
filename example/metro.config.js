@@ -1,5 +1,5 @@
 const { getDefaultConfig, mergeConfig } = require("@react-native/metro-config")
-const path = require("path")
+const path = require("node:path")
 const blacklist = require("metro-config/src/defaults/exclusionList")
 const escape = require("escape-string-regexp")
 const pak = require("../package.json")
@@ -24,14 +24,16 @@ const config = {
       ),
     ),
 
-    extraNodeModules: modules.reduce((acc, name) => {
-      acc[name] = path.join(__dirname, "node_modules", name)
-      return acc
-    }, {}),
+    extraNodeModules: (() => {
+      const extraNodeModules = {}
+      for (const name of modules) {
+        extraNodeModules[name] = path.join(__dirname, "node_modules", name)
+      }
+      return extraNodeModules
+    })(),
   },
 
   transformer: {
-    // eslint-disable-next-line @typescript-eslint/require-await
     getTransformOptions: async () => ({
       transform: {
         experimentalImportSupport: false,
