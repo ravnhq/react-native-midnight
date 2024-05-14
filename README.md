@@ -41,12 +41,12 @@ The addListener function connects a function to a day change notification event.
 This function then returns the reference to the listener. You can remove the listener by calling the `remove` method on it.
 
 ```js
-import Midnight from 'react-native-midnight'
+import Midnight from "react-native-midnight"
 
 const App = () => {
   React.useEffect(() => {
     const listener = Midnight.addListener(() => {
-      Alert.alert('The day has changed')
+      Alert.alert("The day has changed")
     })
     return () => listener.remove()
   }, [])

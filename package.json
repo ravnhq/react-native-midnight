@@ -62,6 +62,7 @@
     "@ravnhq/eslint-config": "^2.0.0",
     "@ravnhq/prettier-config": "^1.1.0",
     "@release-it/conventional-changelog": "^6.0.0",
+    "@trivago/prettier-plugin-sort-imports": "^4.2.0",
     "@types/jest": "^29.5.0",
     "@types/react": "^18.2.12",
     "@types/react-native": "0.66.28",
