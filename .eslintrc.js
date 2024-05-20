@@ -10,8 +10,8 @@ module.exports = {
   ],
   rules: {
     "@typescript-eslint/no-unsafe-assignment": "off",
-    // Adding or updating the filenames/match-exported rule
     "filenames/match-exported": ["warn"],
     "filenames/match-regex": ["warn"],
+    "unicorn/prefer-event-target": "off",
   },
 }

@@ -1,7 +1,9 @@
 import React from "react"
 import { NativeEventEmitter } from "react-native"
 
-import { NativeMidnight } from "./NativeMidnight"
+import { NativeMidnight } from "./native-midnight"
+
+console.log(NativeEventEmitter)
 
 const midnightEmitter = new NativeEventEmitter(NativeMidnight)
 

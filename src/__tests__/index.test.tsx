@@ -1,9 +1,6 @@
-// import { NativeEventEmitter, NativeModules } from "react-native" // eslint-disable-line @typescript-eslint/no-unused-vars
-import { NativeModules } from "react-native"
+import { NativeEventEmitter, NativeModules } from "react-native"
 
-jest.mock("react-native/Libraries/EventEmitter/NativeEventEmitter", () =>
-  jest.fn(),
-)
+// jest.mock('react-native/Libraries/EventEmitter/NativeEventEmitter');
 
 const Midnight = {}
 NativeModules.Midnight = Midnight
@@ -11,11 +8,11 @@ NativeModules.Midnight = Midnight
 test.todo("errors when attempting to use on unsupported platform")
 test.todo("errors when the NativeModule is null")
 
-// test('creates native event emitter', () => {
-//   require('../Midnight') // eslint-disable-line unicorn/prefer-module
-//   const { NativeMidnight } = require('../NativeMidnight')
-//   expect(NativeEventEmitter).toHaveBeenCalledWith(NativeMidnight)
-// })
+test("creates native event emitter", () => {
+  require("../midnight") // eslint-disable-line unicorn/prefer-module
+  const { NativeMidnight } = require("../native-midnight") // eslint-disable-line unicorn/prefer-module, @typescript-eslint/no-var-requires
+  expect(NativeEventEmitter).toHaveBeenCalledWith(NativeMidnight)
+})
 
 test.todo("creates native event emitter")
 
