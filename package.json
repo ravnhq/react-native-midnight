@@ -59,6 +59,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
+    "@babel/helper-skip-transparent-expression-wrappers": "7.20.0",
     "@ravnhq/eslint-config": "^2.0.0",
     "@ravnhq/prettier-config": "^1.1.0",
     "@release-it/conventional-changelog": "^6.0.0",

@@ -2,7 +2,10 @@ import { NativeEventEmitter, NativeModules } from "react-native"
 
 // jest.mock('react-native/Libraries/EventEmitter/NativeEventEmitter');
 
-const Midnight = {}
+const Midnight = {
+  addListener: jest.fn(),
+  removeListeners: jest.fn(),
+}
 NativeModules.Midnight = Midnight
 
 test.todo("errors when attempting to use on unsupported platform")
@@ -11,7 +14,7 @@ test.todo("errors when the NativeModule is null")
 test("creates native event emitter", () => {
   require("../midnight") // eslint-disable-line unicorn/prefer-module
   const { NativeMidnight } = require("../native-midnight") // eslint-disable-line unicorn/prefer-module, @typescript-eslint/no-var-requires
-  expect(NativeEventEmitter).toHaveBeenCalledWith(NativeMidnight)
+  expect(NativeEventEmitter).toHaveBeenCalledWith(Midnight)
 })
 
 test.todo("creates native event emitter")
