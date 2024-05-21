@@ -2,8 +2,8 @@ import { type EventSubscription, NativeModules, Platform } from "react-native"
 
 interface MidnightNativeModule extends EventSubscription {
   triggerDayChangedEvent: () => void
-  addListener: () => void
-  removeListeners: () => void
+  addListener: (eventType: string) => void
+  removeListeners: (count: number) => void
 }
 
 const NativeMidnight: MidnightNativeModule | undefined = NativeModules.Midnight

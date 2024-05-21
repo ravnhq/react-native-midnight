@@ -1,5 +1,12 @@
-import RCTDeviceEventEmitter from "react-native/Libraries/EventEmitter/RCTDeviceEventEmitter"
-import EventEmitter from "react-native/Libraries/vendor/emitter/EventEmitter"
+const EventEmitter =
+  require("react-native/Libraries/vendor/emitter/EventEmitter").default
+const RCTDeviceEventEmitter =
+  require("react-native/Libraries/EventEmitter/RCTDeviceEventEmitter").default
+
+const Platform = {
+  OS: "android",
+  select: (obj) => obj.android,
+}
 
 class NativeEventEmitter extends EventEmitter {
   constructor(nativeModule) {
@@ -40,4 +47,18 @@ class NativeEventEmitter extends EventEmitter {
   }
 }
 
-export default NativeEventEmitter
+const NativeModules = {
+  Midnight: {
+    addListener: jest.fn(),
+    removeListeners: jest.fn(),
+  },
+}
+
+module.exports = {
+  Platform,
+  NativeEventEmitter: jest
+    .fn()
+    .mockImplementation((nativeModule) => new NativeEventEmitter(nativeModule)),
+  NativeModules,
+  // Mock other react-native exports as needed
+}
