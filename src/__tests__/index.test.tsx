@@ -2,7 +2,7 @@ import { NativeEventEmitter } from "react-native"
 
 test("creates native event emitter", () => {
   // eslint-disable-next-line unicorn/prefer-module
-  require("../midnight")
+  require("../Midnight")
   // eslint-disable-next-line unicorn/prefer-module
   const { NativeMidnight } = require("../native-midnight") // eslint-disable-line @typescript-eslint/no-var-requires
   expect(NativeEventEmitter).toHaveBeenCalledWith(NativeMidnight)

@@ -1,1 +1,1 @@
-export { useOnDayChange, default } from "./midnight"
+export { useOnDayChange, default } from "./Midnight"
