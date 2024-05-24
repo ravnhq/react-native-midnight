@@ -1,16 +1,20 @@
 module.exports = {
   root: true,
+  env: {
+    jest: true,
+  },
   parserOptions: {
-    project: './tsconfig.eslint.json',
+    project: "./tsconfig.eslint.json",
   },
   extends: [
-    '@ravn-dev/eslint-config-ravn/react',
-    '@ravn-dev/eslint-config-ravn/react-native',
-    '@ravn-dev/eslint-config-ravn/base',
-    '@ravn-dev/eslint-config-ravn/jest',
-    '@ravn-dev/eslint-config-ravn/typescript',
+    "@ravnhq/eslint-config",
+    "@ravnhq/eslint-config/react",
+    "@ravnhq/eslint-config/react-native",
   ],
   rules: {
-    '@typescript-eslint/no-unsafe-assignment': 'off',
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "filenames/match-exported": ["warn"],
+    "filenames/match-regex": ["warn"],
+    "unicorn/prefer-event-target": "off",
   },
 }

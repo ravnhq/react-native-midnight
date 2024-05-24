@@ -1,15 +1,16 @@
-const path = require('path')
-const blacklist = require('metro-config/src/defaults/blacklist')
-const escape = require('escape-string-regexp')
-const pak = require('../package.json')
+const { getDefaultConfig, mergeConfig } = require("@react-native/metro-config")
+const path = require("node:path")
+const blacklist = require("metro-config/src/defaults/exclusionList")
+const escape = require("escape-string-regexp")
+const pak = require("../package.json")
 
-const root = path.resolve(__dirname, '..')
+const root = path.resolve(__dirname, "..")
 
 const modules = Object.keys({
   ...pak.peerDependencies,
 })
 
-module.exports = {
+const config = {
   projectRoot: __dirname,
   watchFolders: [root],
 
@@ -19,18 +20,20 @@ module.exports = {
     blacklistRE: blacklist(
       modules.map(
         (m) =>
-          new RegExp(`^${escape(path.join(root, 'node_modules', m))}\\/.*$`),
+          new RegExp(`^${escape(path.join(root, "node_modules", m))}\\/.*$`),
       ),
     ),
 
-    extraNodeModules: modules.reduce((acc, name) => {
-      acc[name] = path.join(__dirname, 'node_modules', name)
-      return acc
-    }, {}),
+    extraNodeModules: (() => {
+      const extraNodeModules = {}
+      for (const name of modules) {
+        extraNodeModules[name] = path.join(__dirname, "node_modules", name)
+      }
+      return extraNodeModules
+    })(),
   },
 
   transformer: {
-    // eslint-disable-next-line @typescript-eslint/require-await
     getTransformOptions: async () => ({
       transform: {
         experimentalImportSupport: false,
@@ -39,3 +42,5 @@ module.exports = {
     }),
   },
 }
+
+module.exports = mergeConfig(getDefaultConfig(__dirname), config)

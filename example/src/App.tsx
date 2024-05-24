@@ -1,30 +1,29 @@
-import React from 'react'
 import {
-  StyleSheet,
-  View,
-  Text,
+  Alert,
   Button,
   NativeModules,
-  Alert,
-} from 'react-native'
-import { useOnDayChange } from 'react-native-midnight'
+  StyleSheet,
+  Text,
+  View,
+} from "react-native"
+import { useOnDayChange } from "react-native-midnight"
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     paddingBottom: 16,
   },
 })
 
 export default function App() {
   useOnDayChange(() => {
-    Alert.alert('The day has changed')
+    Alert.alert("The day has changed")
   })
 
   return (

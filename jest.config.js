@@ -1,8 +1,8 @@
 module.exports = {
-  preset: 'react-native',
+  preset: "react-native",
   modulePathIgnorePatterns: [
-    '<rootDir>/example/node_modules',
-    '<rootDir>/lib/',
+    "<rootDir>/example/node_modules",
+    "<rootDir>/lib/",
   ],
-  collectCoverageFrom: ['./src/**/*.{ts,tsx}'],
+  collectCoverageFrom: ["./src/**/*.{ts,tsx}"],
 }

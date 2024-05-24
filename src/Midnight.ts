@@ -1,13 +1,14 @@
-import React from 'react'
-import { NativeEventEmitter } from 'react-native'
-import { NativeMidnight } from './NativeMidnight'
+import React from "react"
+import { NativeEventEmitter } from "react-native"
+
+import { NativeMidnight } from "./native-midnight"
 
 const midnightEmitter = new NativeEventEmitter(NativeMidnight)
 
 type MidnightListener = () => void
 
 const addListener = (cb: MidnightListener) => {
-  return midnightEmitter.addListener('Midnight_dayChanged', cb)
+  return midnightEmitter.addListener("Midnight_dayChanged", cb)
 }
 
 export const useOnDayChange = (cb: MidnightListener) => {

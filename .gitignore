@@ -62,3 +62,6 @@ lib/
 coverage/
 
 .env
+
+#java
+*.hprof
